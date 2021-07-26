@@ -1,0 +1,36 @@
+
+<?php
+/** @var $block \Training\DescriptionWidget\Block\Widget\DescriptionWidget */
+
+
+?>
+<section  class="how">
+    <h3 class="how__header"><?= $block->getTitle() ?></h3>
+    <div class="how__wrapper">
+        <?php if($block->getData('first_step_text')): ?>
+        <div class="how__item">
+            <img src="<?= $block->getFirstIcon()?>" alt="" class="how__icon"/>
+            <div class="how__descr"><?= $block->getFirstStepText() ?></div>
+        </div>
+        <?php endif; ?>
+        <?php if($block->getData('second_step_text')): ?>
+        <div class="how__item">
+            <img src="<?= $block->getSecondIcon()?>" alt="" class="how__icon"/>
+            <div class="how__descr"><?= $block->getSecondStepText() ?></div>
+        </div>
+        <?php endif; ?>
+        <?php if($block->getData('third_step_text')): ?>
+        <div class="how__item">
+            <img src="<?= $block->getThirdIcon()?>" alt="" class="how__icon"/>
+            <div class="how__descr"><?= $block->getThirdStepText() ?></div>
+        </div>
+        <?php endif; ?>
+        <?php if($block->getData('fourth_step_text')): ?>
+        <div class="how__item">
+            <img src="<?= $block->getFourthIcon()?>" alt="" class="how__icon"/>
+            <div class="how__descr"><?= $block->getFourthStepText() ?></div>
+        </div>
+        <?php endif; ?>
+    </div>
+
+</section>

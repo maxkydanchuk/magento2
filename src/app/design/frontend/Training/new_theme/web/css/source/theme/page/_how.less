@@ -1,0 +1,45 @@
+.how {
+    padding: 0px 55px 100px;
+}
+.how__header {
+    //font-family: 'Rajdhani';
+    font-weight: 700;
+    font-size: @title-font;
+    color: #343434;
+    text-align: center;
+}
+.how__wrapper {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 60px;
+}
+.how__item {
+    position: relative;
+    width: 250px;
+    height: 181px;
+    &:after {
+        content: url('../images/how_arrow.png');
+        position: absolute;
+        left: -70px;
+        //transform: translateY(50%);
+        top: 10%;
+    }
+    &:first-child {
+        &:after {
+            content: '';
+        }
+    }
+}
+.how__icon {
+    display: block;
+    margin: 0 auto;
+}
+.how__descr {
+    margin-top: 30px;
+    //font-family: 'Open Sans';
+    font-weight: 500;
+    font-size: @normal-font;
+    line-height: 22px;
+    text-align: center;
+    color: #343434;
+}

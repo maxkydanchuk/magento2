@@ -1,0 +1,27 @@
+<?php /** @var $block \Magento\Framework\View\Element\Template */ ?>
+
+<a href="#up"  class="pageup">
+    <img src="<?= $block->getViewFileUrl('images/icons/circle_up.svg')?>" alt="up">
+</a>
+
+<script>
+    require(['jquery'], function($){
+
+        $(window).on("scroll", function () {
+            if ($(this).scrollTop() > 150 && ($(this).width() > 768)) {
+                $(".pageup").fadeIn();
+            } else {
+                $(".pageup").fadeOut();
+            }
+        });
+
+        function scrollUp() {
+            $('.pageup').on("click", function (event) {
+                event.preventDefault();
+                $([document.documentElement, document.body]).animate({ scrollTop: $('.page-header').offset().top + "px" });
+            });
+        }
+
+        scrollUp();
+    });
+</script>

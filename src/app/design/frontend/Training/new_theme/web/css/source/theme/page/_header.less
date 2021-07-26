@@ -1,0 +1,105 @@
+.page-header .panel.wrapper, .nav-sections, .navigation {
+    background: none;
+}
+//.page-header {
+//    display: flex;
+//    justify-content:space-between ;
+//    align-items: center;
+//}
+.page-header .panel.wrapper {
+    border: none;
+}
+
+.header.content {
+    margin: 0;
+    max-width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 55px 26px;
+}
+.header.content:before {
+    content: '';
+    display: none;
+}
+.header.content:after {
+    content: '';
+    display: none;
+}
+
+.nav-sections {
+    margin: 0;
+}
+.nav-sections-items, .nav-sections-items ul {
+    display: inline;
+    background: none;
+}
+.navigation {
+    background: none;
+    display: inline;
+}
+
+.header.content .header.links {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    list-style-type: none ;
+}
+
+.header.content .header.links li {
+    margin: 0;
+}
+.navigation .level0 > .level-top {
+    font-family: "Open Sans";
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 19px;
+    color: #252a34;
+    text-decoration: none;
+}
+
+.nav-sections-item-content > .header.links{
+
+}
+
+.logo {
+    margin: 0;
+}
+
+.header.content > .header.links > .authorization-link:after {
+    content: '';
+}
+
+.authorization-link {
+    transform: translateY(25%);
+    a {
+        //transform: translate(10px, 10px);
+        font-family: "Open Sans";
+        font-style: normal;
+        font-weight: 600;
+        font-size: @normal-font;
+        line-height: 22px;
+        color: #ff2e63;
+        margin-right: 30px;
+        text-decoration: none;
+    }
+}
+
+.header.content > .header.links li  {
+    &:last-child a {
+        display: block;
+        text-align: center;
+        padding: 10px 23px;
+        //width: 110px;
+        //height: 40px;
+        background: @main-color;
+        border-radius: 5px;
+        border: none;
+        font-family: "Open Sans";
+        font-weight: 600;
+        font-size: @normal-font;
+        color: #ffffff;
+        cursor: pointer;
+    }
+}

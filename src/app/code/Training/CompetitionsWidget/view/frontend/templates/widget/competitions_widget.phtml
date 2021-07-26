@@ -1,0 +1,40 @@
+
+<?php
+/** @var $block \Training\CompetitionsWidget\Block\Widget\CompetitionsWidget */
+
+$ids = [3];
+
+?>
+<section  class="competitions">
+    <?php if($block->hasWidgetTitle()): ?>
+        <div class="competitions__header"><?= $block->widgetTitle() ?></div>
+    <?php endif; ?>
+
+    <?php $categoryProducts = $block->getProductCollectionByCategories($ids); ?>
+    <div class="competitions__content">
+        <?php foreach ($categoryProducts as $product): ?>
+            <div class="competitions-item">
+                <img class="competitions-item__image" src="<?= $block->getProductImageUrl($product->getId())?>"/>
+                <div class="competitions-item__title"><?= $product->getName() ?></div>
+                <div class="competitions-item__price">
+                    <span class="competitions-item__price_new"><?= round($product->getPrice(), 4) ?></span>
+                    <span class="competitions-item__price_old"><?= round($product->getCost(), 3)?></span>
+                </div>
+                <div class="competitions-item__ticket"> <?= $block->getStockItemInformation($product->getId())->getQty() ?> <span class="competitions-item__ticket_text"><?= __('tickets remaining') ?></span></div>
+                <a href="<?= $product->getProductUrl() ?>" class="competitions-item__button">
+                </a>
+            </div>
+
+        <?php endforeach; ?>
+    </div>
+</section>
+
+<script type="text/x-magento-init">
+  {
+     "*": {
+         "competitions": {
+            "wrapper": ".competitions__content"
+         }
+     }
+  }
+  </script>

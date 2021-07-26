@@ -1,0 +1,63 @@
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="logo">
+            <arguments>
+                <argument name="logo_width" xsi:type="number">137</argument>
+                <argument name="logo_height" xsi:type="number">37</argument>
+                <argument name="logo_file" xsi:type="string">images/LOGOAuto.jpg</argument>
+            </arguments>
+        </referenceBlock>
+        <referenceBlock name="header">
+            <arguments>
+                <argument name="show_part" xsi:type="string">other</argument>
+            </arguments>
+        </referenceBlock>
+
+        <move element="navigation.sections" destination="header-wrapper" after="logo"/>
+        <move element="logo" destination="header-wrapper"/>
+        <move element="header.links" destination="header-wrapper" after="navigation.sections"/>
+        <move element="minicart" destination="header-wrapper"  after="header.links"/>
+
+        <referenceContainer name="header.container">
+            <referenceBlock name="header.panel.wrapper" remove="true"/>
+            <referenceBlock name="top.search" remove="true"/>
+<!--            <referenceBlock name="minicart" remove="true"/>-->
+            <referenceBlock name="wish-list-link" remove="true" />
+            <referenceBlock name="my-account-link" remove="true" />
+            <referenceBlock name="catalog.compare.link" remove="true" />
+        </referenceContainer>
+
+<!--        <referenceContainer name="page.main.title" remove="true" />-->
+<!--        <referenceContainer name="breadcrumbs" remove="true" />-->
+
+
+        <referenceContainer name="footer">
+            <block class="Magento\Framework\View\Element\Template" name="page.up"  template="Magento_Theme::pageup.phtml"/>
+            <referenceBlock name="form.subscribe" remove="true"/>
+            <referenceBlock name="copyright" remove="true"/>
+            <block class="Training\Footer\Block\Footer" name="footer.text"  template="Training_Footer::footer_text.phtml"/>
+            <referenceBlock name="footer_links" remove="true">
+                <block class="Magento\Framework\View\Element\Html\Link\Current" name="about-us" before="search-term-popular-link">
+                    <arguments>
+                        <argument name="label" xsi:type="string" translate="true">Latest Competitions</argument>
+                        <argument name="path" xsi:type="string">about-us</argument>
+                        <argument name="attributes" xsi:type="array">
+                            <item name="target" xsi:type="string">_blank</item>
+                        </argument>
+                    </arguments>
+                </block>
+            </referenceBlock>
+        </referenceContainer>
+
+        <referenceBlock name="category.product.addto.compare" remove="true"/>
+        <referenceBlock name="catalog.compare.sidebar" remove="true"/>
+        <referenceBlock name="catalog.compare.link" remove="true" />
+        <referenceBlock name="catalog.compare.sidebar" remove="true"/>
+        <referenceBlock name="catalogsearch.product.addto.compare" remove="true"/>
+        <referenceBlock name="category.product.addto.compare" remove="true"/>
+        <referenceBlock name="crosssell.product.addto.compare" remove="true" />
+        <referenceBlock name="related.product.addto.compare" remove="true" />
+        <referenceBlock name="upsell.product.addto.compare" remove="true" />
+        <referenceBlock name="view.addto.compare" remove="true" />
+    </body>
+</page>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+    <widget class="Training\WinnersWidget\Block\Widget\WinnersWidget" id="training_winnerswidget">
+        <label>Winners Widget</label>
+        <description>Example</description>
+        <parameters>
+            <parameter name="title" sort_order="10" visible="true" xsi:type="text">
+                <label>Title</label>
+            </parameter>
+            <parameter name="first_winner_text" sort_order="10" visible="true" xsi:type="text">
+                <label>First Winners Car</label>
+            </parameter>
+            <parameter name="first_winner_date" sort_order="10" visible="true" xsi:type="text">
+                <label>First Winner Date</label>
+            </parameter>
+            <parameter name="first_winner_icon" xsi:type="block" visible="true" sort_order="10">
+                <label translate="true">Photo</label>
+                <block class="Training\DescriptionWidget\Block\Adminhtml\Widget\ImageChooser">
+                    <data>
+                        <item name="button" xsi:type="array">
+                            <item name="open" xsi:type="string">Choose Image...</item>
+                        </item>
+                    </data>
+                </block>
+            </parameter>
+            <parameter name="second_winner_text" sort_order="10" visible="true" xsi:type="text">
+                <label>Second Winners Car</label>
+            </parameter>
+            <parameter name="second_winner_date" sort_order="10" visible="true" xsi:type="text">
+                <label>Second Winner Date</label>
+            </parameter>
+            <parameter name="second_winner_icon" xsi:type="block" visible="true" sort_order="10">
+                <label translate="true">Photo</label>
+                <block class="Training\DescriptionWidget\Block\Adminhtml\Widget\ImageChooser">
+                    <data>
+                        <item name="button" xsi:type="array">
+                            <item name="open" xsi:type="string">Choose Image...</item>
+                        </item>
+                    </data>
+                </block>
+            </parameter>
+            <parameter name="third_winner_text" sort_order="10" visible="true" xsi:type="text">
+                <label>Third Winners Car</label>
+            </parameter>
+            <parameter name="third_winner_date" sort_order="10" visible="true" xsi:type="text">
+                <label>Third Winner Date</label>
+            </parameter>
+            <parameter name="third_winner_icon" xsi:type="block" visible="true" sort_order="10">
+                <label translate="true">Photo</label>
+                <block class="Training\DescriptionWidget\Block\Adminhtml\Widget\ImageChooser">
+                    <data>
+                        <item name="button" xsi:type="array">
+                            <item name="open" xsi:type="string">Choose Image...</item>
+                        </item>
+                    </data>
+                </block>
+            </parameter>
+            <parameter name="fourth_winner_text" sort_order="10" visible="true" xsi:type="text">
+                <label>Fourth Winners Car</label>
+            </parameter>
+            <parameter name="fourth_winner_date" sort_order="10" visible="true" xsi:type="text">
+                <label>Fourth Winner Date</label>
+            </parameter>
+            <parameter name="fourth_winner_icon" xsi:type="block" visible="true" sort_order="10">
+                <label translate="true">Photo</label>
+                <block class="Training\DescriptionWidget\Block\Adminhtml\Widget\ImageChooser">
+                    <data>
+                        <item name="button" xsi:type="array">
+                            <item name="open" xsi:type="string">Choose Image...</item>
+                        </item>
+                    </data>
+                </block>
+            </parameter>
+        </parameters>
+    </widget>
+</widgets>

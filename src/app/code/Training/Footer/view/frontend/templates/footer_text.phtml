@@ -1,0 +1,23 @@
+<?php /** @var $block \Training\Footer\Block\Footer  */ ?>
+
+<div class="footer__logo">
+    logoauto
+</div>
+<div class="footer__menu">
+    <?php $categories = $block->getCategoryCollection(); ?>
+
+<!--    --><?php //var_dump($categories);  ?>
+    <?php foreach ($categories as $category): ?>
+        <?php if ($category->getId() !== '2'): ?>
+            <a href="<?= $category->getUrl() ?>" class="footer-link">
+                <span class="footer-link_name"><?= $category->getName() ?></span>
+            </a>
+        <?php endif; ?>
+    <?php endforeach; ?>
+<!--    <a href="#" class="footer__menu_item">Latest Competitions</a>-->
+<!--    <a href="#" class="footer__menu_item">Entry Lists</a>-->
+<!--    <a href="#" class="footer__menu_item">Live Draws</a>-->
+<!--    <a href="#" class="footer__menu_item">Winners</a>-->
+<!--    <a href="#" class="footer__menu_item">Gift Cards</a>-->
+<!--    <a href="#" class="footer__menu_item">How it Works</a>-->
+</div>

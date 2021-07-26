@@ -1,0 +1,33 @@
+
+<?php
+/** @var $block \Training\WinnersWidget\Block\Widget\WinnersWidget */
+
+
+?>
+<section  class="winners">
+    <?php if($block->hasWidgetTitle()): ?>
+        <h3 class="winners__header"><?= $block->widgetTitle() ?></h3>
+    <?php endif; ?>
+    <div class="winners__content">
+        <div class="winners-item">
+            <img src="<?= $block->getFirstWinner() ?>" alt="" class="winners-item__image">
+            <div class="winners-item__name"><?= $block->getFirstWinnerCar() ?></div>
+            <div class="winners-item__date"><?= $block->getFirstWinnerDate() ?></div>
+        </div>
+        <div class="winners-item">
+            <img src="<?= $block->getSecondWinner() ?>" alt="" class="winners-item__image">
+            <div class="winners-item__name"><?= $block->getSecondWinnerCar() ?></div>
+            <div class="winners-item__date"><?= $block->getSecondWinnerDate() ?></div>
+        </div>
+        <div class="winners-item">
+            <img src="<?= $block->getThirdWinner() ?>" alt="" class="winners-item__image">
+            <div class="winners-item__name"><?= $block->getThirdWinnerCar() ?></div>
+            <div class="winners-item__date"><?= $block->getThirdWinnerDate() ?></div>
+        </div>
+        <div class="winners-item">
+            <img src="<?= $block->getFourthWinner() ?>" alt="" class="winners-item__image">
+            <div class="winners-item__name"><?= $block->getFourthWinnerCar() ?></div>
+            <div class="winners-item__date"><?= $block->getFourthWinnerDate() ?></div>
+        </div>
+    </div>
+</section>

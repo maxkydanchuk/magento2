@@ -1,0 +1,109 @@
+
+<?php
+/** @var $block \Training\DescriptionWidget\Block\Widget\DescriptionWidget */
+
+
+?>
+<section  class="reviews">
+    <div class="reviews__left">
+        <div class="review">
+            <div class="reviews__left_text"> <?= $block->getFirstReview() ?></div>
+            <div class="reviews__left_author"> <?= $block->getFirstReviewAuthor() ?> </div>
+        </div>
+        <div class="review">
+            <div class="reviews__left_text"> <?= $block->getSecondReview() ?></div>
+            <div class="reviews__left_author"> <?= $block->getSecondReviewAuthor() ?> </div>
+        </div>
+        <ol class="reviews__left_dots"></ol>
+    </div>
+    <div class="reviews__right">
+        <img class="reviews__right_photo" src="<?= $block->getFirstPhoto()?>" alt="" class="">
+        <img class="reviews__right_photo" src="<?= $block->getSecondPhoto()?>" alt="" class="">
+    </div>
+</section>
+
+<script>
+    require(['jquery', 'jquery/ui'], function($){
+        let slideIndex = 1;
+
+        const dots = [];
+        const slides = $(".reviews__right_photo");
+        const text = $(".review");
+
+        for (let i = 0; i < slides.length; i++) {
+            const dot = $("<li></li>");
+            dot.attr("data-slide-to", i + 1);
+            dot.css({
+                "box-sizing": "border-box",
+                flex: "0 1 auto",
+                width: "10px",
+                height: "10px",
+                "margin-left": "3px",
+                "margin-right": "3px",
+                cursor: "pointer",
+                "background-color": "#FF2E63",
+                "border-radius": "50%",
+                "border-bottom": "10px solid transparent",
+                opacity: ".5",
+                transition: "opacity .6s ease",
+            });
+
+            if (slides.length <= 1) {
+                dot.css({ display: "none" });
+            }
+
+            if (i === 0) {
+                dot.css({ opacity: "1" });
+            }
+            $(".reviews__left_dots").append(dot);
+            dots.push(dot);
+        }
+
+        function changeDotOpacity() {
+            $(dots).each((i, item) => {
+                $(item).css({ opacity: ".5" });
+            });
+            $(dots[slideIndex - 1]).css({ opacity: "1" });
+        }
+        function showSlides() {
+            $(slides).each((i, item) => {
+                $(item).css({ display: "none" });
+            });
+
+            $(slides[slideIndex - 1]).css({ display: "block" });
+
+            $(dots[slideIndex - 1]).css({ opacity: "1" });
+
+            $(text).each((i, item) => {
+                $(item).css({ display: "none" });
+            });
+
+            $(text[slideIndex - 1]).css({ display: "block" });
+
+            $(dots).each((i, item) => {
+                item.on("click", function (event) {
+                    const slideTo = $(event.target).attr("data-slide-to");
+
+                    slideIndex = slideTo;
+
+                    $(slides).each((i, item) => {
+                        $(item).css({ display: "none" });
+                    });
+
+                    $(slides[slideIndex - 1]).css({ display: "block" });
+                    changeDotOpacity();
+
+                    $(text).each((i, item) => {
+                        $(item).css({ display: "none" });
+                    });
+
+                    $(text[slideIndex - 1]).css({ display: "block" });
+                });
+            });
+        }
+
+        showSlides();
+    });
+</script>
+
+
