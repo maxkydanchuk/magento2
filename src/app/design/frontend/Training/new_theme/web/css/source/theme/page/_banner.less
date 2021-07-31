@@ -1,39 +1,161 @@
-.banner {
-    position: relative;
-    padding: 95px 0 76px 55px;
-    display: block;
+& when (@media-common = true) {
+    .banner {
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .banner__text {
+        font-family: "Rajdhani";
+        font-style: normal;
+        font-weight: bold;
+        z-index: 1;
+    }
+
+    .banner__button-enter {
+        margin-top: 50px;
+        background: #346cd9;
+        border-radius: 5px;
+        border: none;
+        font-family: 'Open Sans';
+        font-weight: 600;
+        font-size: @normal-font;
+        color: #ffffff;
+        cursor: pointer;
+    }
+
+    .text-red {
+        color: @main-color;
+    }
+}
+//
+//  Mobile (styles-m.css)
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__s) {
+    .banner {
+        .banner__text {
+            .banner__title {
+                font-size: 28px;
+            }
+
+            .banner__descript {
+                font-size: 14px;
+            }
+        }
+
+    }
 }
 
-.banner__text {
-    font-family: "Rajdhani";
-    //margin-top: 95px;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 50px;
-    line-height: 60px;
-    z-index: 1;
-}
-.banner__button-enter {
-    margin-top: 50px;
-    width: 120px;
-    height: 40px;
-    background: #346cd9;
-    border-radius: 5px;
-    border: none;
-    //font-family: 'Open Sans';
-    font-weight: 600;
-    font-size: @normal-font;
-    color: #ffffff;
-    cursor: pointer;
-}
-.banner__image {
-    position: absolute;
-    right: 0;
-    top: 0;
+// Mobile and Tablet
+// _________________________________________
 
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+    .banner {
+        .banner__content {
+            margin:0 auto;
+        }
 
-    //    margin-top: 74px;
+        .banner__text {
+            margin-top: 40px;
+            font-size: 37px;
+            text-align: center;
+        }
+
+        .banner__button-enter {
+            margin-top: 34px;
+            width: 100px;
+            height: 34px;
+            font-size: 14px;
+            margin-left: 30%;
+        }
+
+        .banner__image {
+            display: none;
+        }
+    }
 }
-.text-red {
-    color: @main-color;
+
+// 768+ / 768 ==;
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .banner {
+        padding: 14px 55px 44px;
+        .banner__text {
+            margin-top: 54px;
+            font-size: 40px;
+            line-height: 45px;
+        }
+
+        .banner__button-enter {
+            margin-top: 34px;
+            width: 100px;
+            height: 34px;
+            font-size: 14px;
+        }
+
+        .banner__image {
+            position: absolute;
+            top: 0;
+            right: 0;
+            margin-top: 55px;
+            width: 50%;
+        }
+    }
 }
+//
+//Desktop
+//
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .banner {
+        .banner__text {
+                font-weight: bold;
+                font-size: 50px;
+                line-height: 60px;
+        }
+
+        .banner__button-enter {
+               margin-top: 50px;
+                width: 120px;
+                height: 40px;
+        }
+    }
+}
+
+//.banner {
+//    position: relative;
+//    padding: 95px 0 76px 55px;
+//    display: block;
+//}
+//
+//.banner__text {
+//    font-family: "Rajdhani";
+//    //margin-top: 95px;
+//    font-style: normal;
+//    font-weight: bold;
+//    font-size: 50px;
+//    line-height: 60px;
+//    z-index: 1;
+//}
+//.banner__button-enter {
+//    margin-top: 50px;
+//    width: 120px;
+//    height: 40px;
+//    background: #346cd9;
+//    border-radius: 5px;
+//    border: none;
+//    //font-family: 'Open Sans';
+//    font-weight: 600;
+//    font-size: @normal-font;
+//    color: #ffffff;
+//    cursor: pointer;
+//}
+//.banner__image {
+//    position: absolute;
+//    right: 0;
+//    top: 0;
+//}
+//.text-red {
+//    color: @main-color;
+//}
+

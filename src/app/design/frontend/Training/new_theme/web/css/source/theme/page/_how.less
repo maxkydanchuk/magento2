@@ -1,45 +1,159 @@
-.how {
-    padding: 0px 55px 100px;
-}
-.how__header {
-    //font-family: 'Rajdhani';
-    font-weight: 700;
-    font-size: @title-font;
-    color: #343434;
-    text-align: center;
-}
-.how__wrapper {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 60px;
-}
-.how__item {
-    position: relative;
-    width: 250px;
-    height: 181px;
-    &:after {
-        content: url('../images/how_arrow.png');
-        position: absolute;
-        left: -70px;
-        //transform: translateY(50%);
-        top: 10%;
+& when (@media-common = true) {
+
+    .how__header {
+        font-family: 'Rajdhani';
+        font-weight: 700;
+        font-size: @title-font;
+        color: #343434;
+        text-align: center;
     }
-    &:first-child {
-        &:after {
-            content: '';
+
+    .how__wrapper {
+        display: flex;
+    }
+
+    .how__item {
+        position: relative;
+        width: 250px;
+        //height: 181px;
+}
+
+    .how__icon {
+        display: block;
+        margin: 0 auto;
+    }
+
+    .how__descr {
+        font-family: 'Open Sans';
+        font-weight: 500;
+        font-size: @normal-font;
+        line-height: 22px;
+        text-align: center;
+        color: #343434;
+    }
+}
+//
+// Mobile and Tablet
+//
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+    .how {
+        padding: 0 36px 50px;
+    }
+
+        .how__wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 28px;
         }
+
+        .how__item {
+            max-height: 181px;
+
+            &:after {
+                content: '';
+            }
+        }
+
+        .how__descr {
+            margin-top: 20px;
+        }
+}
+
+//
+//Tablet
+//
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .how {
+        padding: 0px 55px 100px;
+    }
+
+    .how__header {
+        font-size: 32px;
+    }
+
+    .how__descr {
+        margin-top: 26px;
+        font-size: 14px;
     }
 }
-.how__icon {
-    display: block;
-    margin: 0 auto;
+
+//
+//  Desktop (style-l.css)
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .how {
+        padding: 0px 55px 100px;
+    }
+    .how__header {
+        font-size: @title-font;
+    }
+    .how__wrapper {
+        position: relative;
+        justify-content: space-around;
+        margin-top: 60px;
+    }
+    .how__item{
+        margin: 0 10px;
+            &:after {
+                content: url('@{baseDir}/images/how_arrow.png');
+                position: absolute;
+                left: -14%;
+                //transform: translateY(50%);
+                top: 10%;
+            }
+             &:first-child {
+                 &:after {
+                     content: '';
+                 }
+             }
+    }
 }
-.how__descr {
-    margin-top: 30px;
-    //font-family: 'Open Sans';
-    font-weight: 500;
-    font-size: @normal-font;
-    line-height: 22px;
-    text-align: center;
-    color: #343434;
-}
+//.how {
+//    padding: 0px 55px 100px;
+//}
+//.how__header {
+//    font-family: 'Rajdhani';
+//    font-weight: 700;
+//    font-size: @title-font;
+//    color: #343434;
+//    text-align: center;
+//}
+//.how__wrapper {
+//    display: flex;
+//    justify-content: space-around;
+//    margin-top: 60px;
+//}
+//.how__item {
+//    position: relative;
+//    width: 250px;
+//    height: 181px;
+//    &:after {
+//        content: url('../images/how_arrow.png');
+//        position: absolute;
+//        left: -70px;
+//        //transform: translateY(50%);
+//        top: 10%;
+//    }
+//    &:first-child {
+//        &:after {
+//            content: '';
+//        }
+//    }
+//}
+//.how__icon {
+//    display: block;
+//    margin: 0 auto;
+//}
+//.how__descr {
+//    margin-top: 30px;
+//    //font-family: 'Open Sans';
+//    font-weight: 500;
+//    font-size: @normal-font;
+//    line-height: 22px;
+//    text-align: center;
+//    color: #343434;
+//}

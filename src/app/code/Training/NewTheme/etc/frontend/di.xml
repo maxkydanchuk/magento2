@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <!-- Plugin to filter the product description and process any widget added to it -->
+    <type name="Magento\Catalog\Helper\Product\View">
+        <plugin name="Training_NewTheme_State_Selector_Plugin" type="Training\NewTheme\Plugin\Helper\Product\View"/>
+    </type>
+    <type name="Training\NewTheme\Block\CustomAttribute">
+        <arguments>
+            <argument name="templateProcessor" xsi:type="object">Magento\Widget\Model\Template\Filter</argument>
+        </arguments>
+    </type>
+</config>

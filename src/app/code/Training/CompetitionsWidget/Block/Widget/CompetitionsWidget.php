@@ -34,8 +34,10 @@ class CompetitionsWidget extends Template implements BlockInterface
      * Template
      */
 
-    const DEFAULT_TEMPLATE = 'widget/competitions_widget.phtml';
+//    protected $_template = 'widget/competitions_widget.phtml';
 
+    const DEFAULT_TEMPLATE = 'widget/competitions_widget.phtml';
+//
     public function _construct()
     {
         if (!$this->hasData('template')) {

@@ -1,0 +1,7 @@
+<?php
+/**  @var \Training\NewTheme\Block\CustomAttribute $block */
+
+?>
+<?if( $block->getCustomEditor() ): ?>
+<div class="custom_editor"> <?= $block->filterOutputHtml($block->getCustomEditor()) ?> </div>
+<?endif;?>

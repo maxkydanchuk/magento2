@@ -1,47 +1,151 @@
-.reviews {
-    display: flex;
+& when (@media-common = true) {
+    .reviews {
+        display: flex;
+    }
+    .reviews__left {
+        position:relative;
+        background: rgba(52, 108, 217, 0.12);
+    }
+    .reviews__left_text {
+        font-family: 'Open Sans';
+        font-weight: 600;
+        text-align: center;
+        color: #343434;
+    }
+    .reviews__left_author {
+        font-family: 'Open Sans';
+        font-weight: 500;
+        text-align: center;
+        text-transform: uppercase;
+        color: #343434;
+    }
+    .reviews__right img {
+        width: 100%;
+        height: 100%;
+    }
+    .reviews__left_dots {
+        position: absolute;
+        padding: 0;
+        transform: translateY(-50%);
+        left: 48%;
+        display: flex;
+        justify-content: center;
+        list-style: none;
+    }
+    .reviews__dot {
+        margin-left: 15px;
+    }
+
 }
-.reviews__left {
-    position:relative;
-    width: 50%;
-    background: rgba(52, 108, 217, 0.12);
+
+//
+// Mobile and Tablet
+// _________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+    .reviews {
+        max-height: 800px;
+        padding: 0;
+        flex-direction: column;
+    }
+    .reviews__left {
+        height: 240px;
+        order: 1;
+        width: 100%;
+    }
+    .reviews__left_text {
+        margin-top: 20px;
+        font-size: 16px;
+    }
+    .reviews__left_author {
+        margin-top: 22px;
+        font-size: 16px;
+    }
+    .reviews__left_dots {
+        bottom: 0;
+    }
+    reviews__right {
+        order: 0;
+        width: 100%;
+    }
 }
-.reviews__left_text {
-    margin-top: 78px;
-    font-family: 'Open Sans';
-    font-weight: 600;
-    font-size: 20px;
-    line-height: 30px;
-    text-align: center;
-    color: #343434;
+
+//
+//Tablet
+//
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .reviews__left {
+        width: 50%;
+    }
+    .reviews__left_text {
+        margin-top: 20px;
+        font-size: 19px;
+        line-height: 24px;
+    }
+    .reviews__left_author {
+        margin-top: 22px;
+        font-size: 16px;
+    }
+    .reviews__left_dots {
+        margin-top: 28px;
+        bottom: 8px;
+    }
+    .reviews__right {
+        width: 50%;
+    }
+    .reviews__right img {
+        width: 100%;
+        height: 100%;
+    }
 }
-.reviews__left_author {
-    margin-top: 30px;
-    //font-family: 'Open Sans';
-    font-weight: 500;
-    font-size: @normal-font;
-    text-align: center;
-    text-transform: uppercase;
-    color: #343434;
-}
-.reviews__right {
-    width: 50%;
-}
-.reviews__right img {
-    width: 100%;
-    height: 100%;
-}
-.reviews__left_dots {
-    position: absolute;
-    margin-top: 40px;
-    padding: 0;
-    transform: translateY(-50%);
-    left: 48%;
-    display: flex;
-    justify-content: center;
-    list-style: none;
-    bottom: 30px;
-}
-.reviews__dot {
-    margin-left: 15px;
-}
+
+
+
+//.reviews {
+//    display: flex;
+//}
+//.reviews__left {
+//    position:relative;
+//    width: 50%;
+//    background: rgba(52, 108, 217, 0.12);
+//}
+//.reviews__left_text {
+//    margin-top: 78px;
+//    font-family: 'Open Sans';
+//    font-weight: 600;
+//    font-size: 20px;
+//    line-height: 30px;
+//    text-align: center;
+//    color: #343434;
+//}
+//.reviews__left_author {
+//    margin-top: 30px;
+//    //font-family: 'Open Sans';
+//    font-weight: 500;
+//    font-size: @normal-font;
+//    text-align: center;
+//    text-transform: uppercase;
+//    color: #343434;
+//}
+//.reviews__right {
+//    width: 50%;
+//}
+//.reviews__right img {
+//    width: 100%;
+//    height: 100%;
+//}
+//.reviews__left_dots {
+//    position: absolute;
+//    margin-top: 40px;
+//    padding: 0;
+//    transform: translateY(-50%);
+//    left: 48%;
+//    display: flex;
+//    justify-content: center;
+//    list-style: none;
+//    bottom: 30px;
+//}
+//.reviews__dot {
+//    margin-left: 15px;
+//}

@@ -21,23 +21,24 @@
         <referenceContainer name="header.container">
             <referenceBlock name="header.panel.wrapper" remove="true"/>
             <referenceBlock name="top.search" remove="true"/>
-<!--            <referenceBlock name="minicart" remove="true"/>-->
             <referenceBlock name="wish-list-link" remove="true" />
             <referenceBlock name="my-account-link" remove="true" />
             <referenceBlock name="catalog.compare.link" remove="true" />
         </referenceContainer>
 
-<!--        <referenceContainer name="page.main.title" remove="true" />-->
-<!--        <referenceContainer name="breadcrumbs" remove="true" />-->
-
 
         <referenceContainer name="footer">
-            <block class="Magento\Framework\View\Element\Template" name="page.up"  template="Magento_Theme::pageup.phtml"/>
+            <block class="Magento\Framework\View\Element\Template"
+                   name="page.up"
+                   template="Magento_Theme::pageup.phtml"/>
             <referenceBlock name="form.subscribe" remove="true"/>
             <referenceBlock name="copyright" remove="true"/>
-            <block class="Training\Footer\Block\Footer" name="footer.text"  template="Training_Footer::footer_text.phtml"/>
+            <block class="Training\Footer\Block\Footer"
+                   name="footer.text"  template="Training_Footer::footer_text.phtml"/>
             <referenceBlock name="footer_links" remove="true">
-                <block class="Magento\Framework\View\Element\Html\Link\Current" name="about-us" before="search-term-popular-link">
+                <block class="Magento\Framework\View\Element\Html\Link\Current"
+                       name="about-us"
+                       before="search-term-popular-link">
                     <arguments>
                         <argument name="label" xsi:type="string" translate="true">Latest Competitions</argument>
                         <argument name="path" xsi:type="string">about-us</argument>
@@ -48,16 +49,5 @@
                 </block>
             </referenceBlock>
         </referenceContainer>
-
-        <referenceBlock name="category.product.addto.compare" remove="true"/>
-        <referenceBlock name="catalog.compare.sidebar" remove="true"/>
-        <referenceBlock name="catalog.compare.link" remove="true" />
-        <referenceBlock name="catalog.compare.sidebar" remove="true"/>
-        <referenceBlock name="catalogsearch.product.addto.compare" remove="true"/>
-        <referenceBlock name="category.product.addto.compare" remove="true"/>
-        <referenceBlock name="crosssell.product.addto.compare" remove="true" />
-        <referenceBlock name="related.product.addto.compare" remove="true" />
-        <referenceBlock name="upsell.product.addto.compare" remove="true" />
-        <referenceBlock name="view.addto.compare" remove="true" />
     </body>
 </page>
