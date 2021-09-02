@@ -1,123 +1,125 @@
-.competitions {
-    padding: 76px 55px 100px;
-}
-
-.competitions__header {
-    font-family: "Rajdhani";
-    font-weight: 700;
-    font-size: @title-font;
-    line-height: 46px;
-}
-
-.competitions__content {
-    position: relative;
-    margin: 0 auto;
-    margin-top: 40px;
-}
-
-.competitions-item {
-    position: relative;
-    margin-top: 40px;
-    max-width: 270px;
-    min-height: 283px;
-    background: #ffffff;
-    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.15);
-    border-radius: 10px;
-}
-
-.competitions-item__title {
-    margin: 20px 0 0 20px;
-    font-family: "Rajdhani";
-    font-weight: 700;
-    font-size: 20px;
-    color: #252a34;
-}
-
-.competitions-item__price {
-    margin-left: 20px;
-    margin-top: 5px;
-}
-
-.competitions-item__price_new {
-    font-family: "Rajdhani";
-    font-weight: 700;
-    font-size: 30px;
-    color: @main-color;
-}
-
-.competitions-item__price_old {
-    font-family: "Rajdhani";
-    font-weight: 500;
-    font-size: 20px;
-    text-decoration-line: line-through;
-    color: #999999;
-}
-
-.competitions-item__ticket {
-    margin-left: 20px;
-    margin-top: 2px;
-    font-family: "Open Sans";
-    font-weight: 400;
-    font-size: 14px;
-    color: #343434;
-}
-
-.competitions-item__button {
-    position: absolute;
-    width: 40px;
-    height: 40px;
-    background: #346cd9;
-    border-radius: 10px 0px;
-    text-align: center;
-    color: #ffffff;
-    font-size: 18px;
-    bottom: 0;
-    right: 0px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-
-    &:after {
-        content: url('../images/arrow.png')
+& when (@media-common = true) {
+    .competitions {
+        padding: 76px 55px 100px;
     }
-}
 
-.slick-slide {
-    margin: 0 80px 0 0;
-}
+    .competitions__header {
+        font-family: "Rajdhani";
+        font-weight: 700;
+        font-size: @title-font;
+        line-height: 46px;
+    }
 
-.slick-dots {
-    display: flex;
-    justify-content: center;
-    position: absolute;
-    bottom: -60px;
-    left: 50%;
-    transform: translateX(-50%);
-    list-style-type: none;
+    .competitions__content {
+        position: relative;
+        margin: 0 auto;
+        margin-top: 40px;
+    }
 
-    li {
-        list-style-type: none;
-        margin-right: 20px;
+    .competitions-item {
+        position: relative;
+        margin-top: 40px;
+        max-width: 270px;
+        min-height: 283px;
+        background: #ffffff;
+        box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.15);
+        border-radius: 10px;
+    }
 
-        button {
-            background-color: rgba(255, 0, 48, 0.81);
-            height: 14px;
-            width: 14px;
-            border-radius: 50%;
-            border: none;
-            opacity: 0.5;
-            font-size: 0;
+    .competitions-item__title {
+        margin: 20px 0 0 20px;
+        font-family: "Rajdhani";
+        font-weight: 700;
+        font-size: 20px;
+        color: #252a34;
+    }
 
-            &:before {
-                content: '';
-            }
+    .competitions-item__price {
+        margin-left: 20px;
+        margin-top: 5px;
+    }
+
+    .competitions-item__price_new {
+        font-family: "Rajdhani";
+        font-weight: 700;
+        font-size: 30px;
+        color: @main-color;
+    }
+
+    .competitions-item__price_old {
+        font-family: "Rajdhani";
+        font-weight: 500;
+        font-size: 20px;
+        text-decoration-line: line-through;
+        color: #999999;
+    }
+
+    .competitions-item__ticket {
+        margin-left: 20px;
+        margin-top: 2px;
+        font-family: "Open Sans";
+        font-weight: 400;
+        font-size: 14px;
+        color: #343434;
+    }
+
+    .competitions-item__button {
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        background: #346cd9;
+        border-radius: 10px 0px;
+        text-align: center;
+        color: #ffffff;
+        font-size: 18px;
+        bottom: 0;
+        right: 0px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+
+        &:after {
+            content: url('@{baseDir}/images/arrow.png')
         }
     }
 
-    .slick-active {
-        button {
-            opacity: 1;
+    .slick-slide {
+        margin: 0 80px 0 0;
+    }
+
+    .slick-dots {
+        display: flex;
+        justify-content: center;
+        position: absolute;
+        bottom: -60px;
+        left: 50%;
+        transform: translateX(-50%);
+        list-style-type: none;
+
+        li {
+            list-style-type: none;
+            margin-right: 20px;
+
+            button {
+                background-color: rgba(255, 0, 48, 0.81);
+                height: 14px;
+                width: 14px;
+                border-radius: 50%;
+                border: none;
+                opacity: 0.5;
+                font-size: 0;
+
+                &:before {
+                    content: '';
+                }
+            }
+        }
+
+        .slick-active {
+            button {
+                opacity: 1;
+            }
         }
     }
 }

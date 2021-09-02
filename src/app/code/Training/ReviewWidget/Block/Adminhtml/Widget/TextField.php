@@ -34,8 +34,7 @@ class TextField extends Element
         Factory $factoryElement,
         Config $wysiwygConfig,
         $data = []
-    )
-    {
+    ) {
         $this->_factoryElement = $factoryElement;
         $this->_wysiwygConfig = $wysiwygConfig;
         parent::__construct($context, $data);

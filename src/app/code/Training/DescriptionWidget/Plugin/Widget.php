@@ -4,15 +4,29 @@
 namespace Training\DescriptionWidget\Plugin;
 
 
+use Magento\Backend\Helper\Data;
+
 class Widget
 {
     protected $backendData;
 
+    /**
+     * Widget constructor.
+     * @param Data $backendData
+     */
     public function __construct(
-        \Magento\Backend\Helper\Data $backendData
+        Data $backendData
     ) {
         $this->backendData = $backendData;
     }
+
+    /**
+     * @param \Magento\Widget\Model\Widget $subject
+     * @param $type
+     * @param array $params
+     * @param bool $asIs
+     * @return array
+     */
     public function beforeGetWidgetDeclaration(
         \Magento\Widget\Model\Widget $subject,
         $type,

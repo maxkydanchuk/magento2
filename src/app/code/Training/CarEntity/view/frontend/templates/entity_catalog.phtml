@@ -1,0 +1,40 @@
+<?php
+/**
+ * @var $block CarList
+ */
+
+use Training\CarEntity\Block\CarList;
+
+$carCollection = $block->getEntityCollection();
+?>
+
+
+<div class="products wrapper grid products-grid">
+    <ol class="products list items product-items">
+        <?php foreach ($carCollection as $carItem): ?>
+
+            <li class="item product product-item">
+                <div class="product-item-info" id="product-item-info_2">
+                    <a href="<?= $block->getEntityUrl($carItem) ?>" class="product photo product-item-photo">
+                        <span class="product-image-container product-image-container-2" style="width: 240px;">
+    <span class="product-image-wrapper" style="padding-bottom: 62.5%;">
+        <img class="product-image-photo" src=<?= $block->getImage($carItem) ?>></span>
+</span>
+                    </a>
+                    <div class="product details product-item-details">
+                        <strong class="product name product-item-name">
+                            <a class="product-item-link" href="<?= $block->getEntityUrl($carItem) ?>">
+                                <?= $carItem->getName() ?>                           </a>
+                        </strong>
+                        <div class="price-box price-final_price">
+                            <span class="price-container price-final_price tax weee">
+        <span id="product-price-2" class="price-wrapper "><span class="price">$<?= $carItem->getPrice() ?></span></span>
+        </span>
+
+                        </div>
+                    </div>
+                </div>
+            </li>
+        <?php endforeach; ?>
+    </ol>
+</div>

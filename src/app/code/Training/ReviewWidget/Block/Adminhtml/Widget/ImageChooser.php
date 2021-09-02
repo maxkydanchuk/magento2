@@ -2,16 +2,16 @@
 
 namespace Training\ReviewWidget\Block\Adminhtml\Widget;
 
-use Magento\Framework\Data\Form\Element\AbstractElement as Element;
-use Magento\Backend\Block\Template\Context as TemplateContext;
-use Magento\Framework\Data\Form\Element\Factory as FormElementFactory;
 use Magento\Backend\Block\Template;
+use Magento\Backend\Block\Template\Context as TemplateContext;
+use Magento\Framework\Data\Form\Element\AbstractElement as Element;
+use Magento\Framework\Data\Form\Element\Factory as FormElementFactory;
 
 
 class ImageChooser extends Template
 {
     /**
-     * @var \Magento\Framework\Data\Form\Element\Factory
+     * @var FormElementFactory
      */
     protected $elementFactory;
 

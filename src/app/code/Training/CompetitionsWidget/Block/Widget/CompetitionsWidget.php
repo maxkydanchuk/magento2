@@ -2,13 +2,14 @@
 namespace Training\CompetitionsWidget\Block\Widget;
 
 use Magento\Backend\Block\Template\Context;
+use Magento\Catalog\Helper\Image;
+use Magento\Catalog\Model\ProductFactory;
 use Magento\Catalog\Model\ResourceModel\Product\CollectionFactory;
+use Magento\CatalogInventory\Api\Data\StockItemInterface;
 use Magento\CatalogInventory\Model\Stock\StockItemRepository;
 use Magento\Framework\Exception\NoSuchEntityException;
 use Magento\Framework\View\Element\Template;
 use Magento\Widget\Block\BlockInterface;
-use Magento\Catalog\Helper\Image;
-use Magento\Catalog\Model\ProductFactory;
 
 
 class CompetitionsWidget extends Template implements BlockInterface
@@ -34,10 +35,12 @@ class CompetitionsWidget extends Template implements BlockInterface
      * Template
      */
 
-//    protected $_template = 'widget/competitions_widget.phtml';
 
     const DEFAULT_TEMPLATE = 'widget/competitions_widget.phtml';
-//
+
+    /**
+     *
+     */
     public function _construct()
     {
         if (!$this->hasData('template')) {
@@ -47,6 +50,15 @@ class CompetitionsWidget extends Template implements BlockInterface
         return parent::_construct();
     }
 
+    /**
+     * CompetitionsWidget constructor.
+     * @param Context $context
+     * @param CollectionFactory $productCollectionFactory
+     * @param StockItemRepository $stockItemRepository
+     * @param Image $imageHelper
+     * @param ProductFactory $productFactory
+     * @param array $data
+     */
     public function __construct(
         Context $context,
         CollectionFactory $productCollectionFactory,
@@ -54,8 +66,7 @@ class CompetitionsWidget extends Template implements BlockInterface
         Image $imageHelper,
         ProductFactory $productFactory,
         array $data = []
-    )
-    {
+    ) {
         $this->imageHelper = $imageHelper;
         $this->productFactory = $productFactory;
         $this->_stockItemRepository = $stockItemRepository;
@@ -63,11 +74,20 @@ class CompetitionsWidget extends Template implements BlockInterface
         parent::__construct($context, $data);
     }
 
+    /**
+     * @param $productId
+     * @return StockItemInterface
+     * @throws NoSuchEntityException
+     */
     public function getStockItemInformation($productId)
     {
         return $this->_stockItemRepository->get($productId);
     }
 
+    /**
+     * @param $ids
+     * @return mixed
+     */
     public function getProductCollectionByCategories($ids) {
         $collection = $this->_productCollectionFactory->create();
         $collection->addAttributeToSelect('*');
@@ -75,6 +95,10 @@ class CompetitionsWidget extends Template implements BlockInterface
         return $collection;
     }
 
+    /**
+     * @param $id
+     * @return \Exception|NoSuchEntityException|string
+     */
     public function getProductImageUrl($id)
     {
         try
@@ -89,11 +113,16 @@ class CompetitionsWidget extends Template implements BlockInterface
         return $this->imageHelper->init($product, 'product_page_image_large')->getUrl();
     }
 
-
+    /**
+     * @return bool
+     */
     public function hasWidgetTitle() {
         return $this->hasData('title');
     }
 
+    /**
+     * @return array|mixed|null
+     */
     public function widgetTitle() {
         return $this->getData('title');
     }

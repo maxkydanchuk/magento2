@@ -1,0 +1,16 @@
+{
+  "car_entity": {
+    "column": {
+      "car_entity_id": true,
+      "Name": true,
+      "Price": true,
+      "Quantity": true
+    },
+    "index": {
+      "CAR_ENTITY_CAR_ENTITY_ID": true
+    },
+    "constraint": {
+      "PRIMARY": true
+    }
+  }
+}

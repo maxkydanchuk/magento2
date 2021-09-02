@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Training_CarEntity::management" sortOrder="10" title="Car Entity Management"
+             module="Training_CarEntity" parent="Magento_Catalog::catalog" resource="Training_CarEntity::management"
+             translate="title" action="car_entity/carentity/index"/>
+    </menu>
+</config>

@@ -2,16 +2,18 @@
 
 namespace Training\DescriptionWidget\Block\Adminhtml\Widget;
 
-use Magento\Framework\Data\Form\Element\AbstractElement as Element;
-use Magento\Backend\Block\Template\Context as TemplateContext;
-use Magento\Framework\Data\Form\Element\Factory as FormElementFactory;
 use Magento\Backend\Block\Template;
+use Magento\Backend\Block\Template\Context as TemplateContext;
+use Magento\Backend\Block\Widget\Button;
+use Magento\Framework\Data\Form\Element\AbstractElement as Element;
+use Magento\Framework\Data\Form\Element\Factory as FormElementFactory;
+use Magento\Framework\Data\Form\Element\Text;
 
 
 class ImageChooser extends Template
 {
     /**
-     * @var \Magento\Framework\Data\Form\Element\Factory
+     * @var FormElementFactory
      */
     protected $elementFactory;
 
@@ -41,7 +43,7 @@ class ImageChooser extends Template
         $sourceUrl = $this->getUrl('cms/wysiwyg_images/index',
             ['target_element_id' => $element->getId(), 'type' => 'file']);
 
-        /** @var \Magento\Backend\Block\Widget\Button $chooser */
+        /** @var Button $chooser */
         $chooser = $this->getLayout()->createBlock('Magento\Backend\Block\Widget\Button')
             ->setType('button')
             ->setClass('btn-chooser')
@@ -49,7 +51,7 @@ class ImageChooser extends Template
             ->setOnClick('MediabrowserUtility.openDialog(\''. $sourceUrl .'\')')
             ->setDisabled($element->getReadonly());
 
-        /** @var \Magento\Framework\Data\Form\Element\Text $input */
+        /** @var Text $input */
         $input = $this->elementFactory->create("text", ['data' => $element->getData()]);
         $input->setId($element->getId());
         $input->setForm($element->getForm());

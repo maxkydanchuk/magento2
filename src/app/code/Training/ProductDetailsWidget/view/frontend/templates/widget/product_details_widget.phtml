@@ -1,0 +1,91 @@
+<?php
+/** @var $block ProductDetailsWidget */
+
+use Training\ProductDetailsWidget\Block\Widget\ProductDetailsWidget;
+use Magento\Catalog\Block\Product\ReviewRendererInterface;
+use Magento\Framework\App\ActionInterface;
+use Magento\Framework\Escaper;
+use Magento\Framework\View\Helper\SecureHtmlRenderer;
+use Magento\Catalog\ViewModel\Product\Listing\PreparePostData;
+?>
+
+<section class="product__details" style="background-image: url('<?= $block->getBackground() ?>');">
+
+    <?php $product = $block->getProduct()?>
+
+    <div class="product__details_content"><?= htmlspecialchars_decode($block->getWysiwygContent())?></div>
+    <div class="products wrapper grid products-grid">
+        <ol class="products list items product-items">
+            <?php $product = $block->getProduct() ?>
+            <li class="item product product-item"
+                id="product-item_<?= /* @noEscape */
+                $product->getId() ?>">
+                <div class="product-item-info">
+                    <a href="<?= $block->escapeUrl($product->getProductUrl()) ?>"
+                       class="product photo product-item-photo">
+                        <img src="<?= $block->getImageUrl($product) ?>">
+                    </a>
+                    <div class="product details product-item-details">
+                        <strong class="product name product-item-name"><a
+                                class="product-item-link"
+                                title="<?= $product->getName() ?>"
+                                href="<?= $block->escapeUrl($block->getProductUrl($product)) ?>">
+                                <?= $block->escapeHtml($product->getName()) ?></a>
+                        </strong>
+                        <div class="product-item-price"> $
+                            <?= /* @noEscape */
+                            round($block->getProductPrice($product), 4) ?>
+                            <?= $block->getReviewsSummaryHtml($product, ReviewRendererInterface::SHORT_VIEW) ?>
+                        </div>
+                        <?php // phpcs:disable ?>
+                        <div class="product actions product-item-actions">
+                            <div class="actions-primary">
+                                <?php if ($product->isSaleable()): ?>
+                                    <?php if (!$product->getTypeInstance()->isPossibleBuyFromList($product)): ?>
+                                        <button
+                                            class="action tocart primary"
+                                            data-mage-init='{"redirectUrl": {"url": "<?= $block->escapeUrl($block->getAddToCartUrl($product)) ?>"}}'
+                                            type="button"
+                                            title="<?= $block->escapeHtmlAttr(__('Add to Cart')) ?>">
+                                            <span><?= $block->escapeHtml(__('Add to Cart')) ?></span>
+                                        </button>
+                                    <?php else : ?>
+                                        <?php $postParams = $block->getAddToCartPostParams($product) ?>
+                                        <form data-role="tocart-form"
+                                              data-product-sku="<?= $block->escapeHtmlAttr($product->getSku()) ?>"
+                                              action="<?= $block->escapeUrl($postParams['action']) ?>"
+                                              method="post">
+                                            <input type="hidden" name="product"
+                                                   value="<?= $postParams['data']['product']; ?>">
+                                            <input type="hidden"
+                                                   name="<?= /* @noEscape */
+                                                   ActionInterface::PARAM_NAME_URL_ENCODED ?>"
+                                                   value="<?= $postParams['data'][ActionInterface::PARAM_NAME_URL_ENCODED]; ?>">
+                                            <?= $block->getBlockHtml('formkey') ?>
+                                            <button type="submit"
+                                                    title="<?= $block->escapeHtmlAttr(__('Add to Cart')) ?>"
+                                                    class="action tocart primary">
+                                                <span><?= $block->escapeHtml(__('Add to Cart')) ?></span>
+                                            </button>
+                                        </form>
+                                    <?php endif; ?>
+                                <?php else: ?>
+                                    <?php if ($product->getIsSalable()): ?>
+                                        <div class="stock available">
+                                            <span><?= $block->escapeHtml(__('In stock')) ?></span>
+                                        </div>
+                                    <?php else: ?>
+                                        <div class="stock unavailable">
+                                            <span><?= $block->escapeHtml(__('Out of stock')) ?></span>
+                                        </div>
+                                    <?php endif; ?>
+                                <?php endif; ?>
+                            </div>
+                        </div>
+                        <?php // phpcs:enable ?>
+                    </div>
+                </div>
+            </li>
+        </ol>
+    </div>
+</section>

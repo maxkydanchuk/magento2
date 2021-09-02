@@ -1,0 +1,15 @@
+<?php
+/** @var $block ProductDescriptionWidget */
+
+use Training\ProductDescriptionWidget\Block\Widget\ProductDescriptionWidget;
+
+?>
+
+<section class="product__description" style="background-image: url('<?= $block->getBackground() ?>'); min-height: 800px;">
+<!--    <h1> 3321 --><?//= $block->getProductDescriptionHeader()?><!-- </h1>-->
+    <div class="description__content">
+        <h3 class="description__content_header"><?= $block->getProductDescriptionHeader() ?></h3>
+        <div class="description__content_text"><?= $block->getProductDescriptionText() ?></div>
+    </div>
+</section>
+

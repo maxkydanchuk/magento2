@@ -7,7 +7,7 @@
 <section  class="reviews">
     <div class="reviews__left">
         <div class="review">
-            <div class="reviews__left_text"> <?= $block->getFirstReview() ?></div>
+            <div class="reviews__left_text"> <?= htmlspecialchars_decode($block->getFirstReview()) ?></div>
             <div class="reviews__left_author"> <?= $block->getFirstReviewAuthor() ?> </div>
         </div>
         <div class="review">

@@ -3,5 +3,15 @@
     <body>
         <referenceBlock name="product.info.sku" remove="true" />
         <referenceBlock name="product.info.stock.sku" remove="true"/>
+        <referenceBlock name="view.addto.compare" remove="true" />
+        <referenceBlock name="crosssell.product.addto.compare" remove="true" />
+        <referenceBlock name="related.product.addto.compare" remove="true" />
+        <referenceBlock name="upsell.product.addto.compare" remove="true" />
+
+        <referenceBlock name="content">
+            <block class="Training\NewTheme\Block\CustomAttribute"
+                   name="custom.editor"
+                   template="Training_NewTheme::custom_attribute.phtml"/>
+        </referenceBlock>
     </body>
 </page>

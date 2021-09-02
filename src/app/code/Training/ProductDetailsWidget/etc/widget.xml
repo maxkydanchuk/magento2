@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+    <widget class="Training\ProductDetailsWidget\Block\Widget\ProductDetailsWidget" id="training_productDetailsWidget">
+        <label>Product Details Widget</label>
+        <description>Example</description>
+        <parameters>
+            <parameter name="product_name" sort_order="10" visible="true" xsi:type="text">
+                <label>Product name</label>
+            </parameter>
+            <parameter name="product_about" sort_order="10" visible="true" xsi:type="text">
+                <label>About product</label>
+            </parameter>
+
+            <parameter name="details_wysiwyg" xsi:type="block" visible="true" required="true" sort_order="20" >
+                <label>Custom Content</label>
+                <block class="Training\ProductDetailsWidget\Block\Adminhtml\Widget\Editor" />
+            </parameter>
+
+            <parameter name="details_background" xsi:type="block" visible="true" sort_order="10">
+                <label translate="true">Description background image</label>
+                <block class="Training\ProductDetailsWidget\Block\Adminhtml\Widget\ImageChooser">
+                    <data>
+                        <item name="button" xsi:type="array">
+                            <item name="open" xsi:type="string">Choose Image...</item>
+                        </item>
+                    </data>
+                </block>
+            </parameter>
+        </parameters>
+    </widget>
+</widgets>

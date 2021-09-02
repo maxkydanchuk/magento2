@@ -28,6 +28,7 @@
         color: @main-color;
     }
 }
+
 //
 //  Mobile (styles-m.css)
 //  _____________________________________________
@@ -53,7 +54,7 @@
 .media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
     .banner {
         .banner__content {
-            margin:0 auto;
+            margin: 0 auto;
         }
 
         .banner__text {
@@ -76,11 +77,14 @@
     }
 }
 
-// 768+ / 768 ==;
+//
+//Desktop
+//
 
 .media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
     .banner {
         padding: 14px 55px 44px;
+
         .banner__text {
             margin-top: 54px;
             font-size: 40px;
@@ -103,21 +107,22 @@
         }
     }
 }
+
 //
 //Desktop
 //
 .media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
     .banner {
         .banner__text {
-                font-weight: bold;
-                font-size: 50px;
-                line-height: 60px;
+            font-weight: bold;
+            font-size: 50px;
+            line-height: 60px;
         }
 
         .banner__button-enter {
-               margin-top: 50px;
-                width: 120px;
-                height: 40px;
+            margin-top: 50px;
+            width: 120px;
+            height: 40px;
         }
     }
 }

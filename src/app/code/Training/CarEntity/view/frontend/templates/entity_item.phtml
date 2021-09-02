@@ -1,0 +1,37 @@
+<?php
+
+use Training\CarEntity\Block\CarItem;
+
+/**
+ * @var $block CarItem
+ */
+
+$current = $block->getCurrentEntity();
+?>
+<div class="product-item-photo">
+    <img src="<?= $block->getImage($current) ?>" alt="img"/>
+</div>
+
+<div class="product-info-main">
+    <div class="page-title-wrapper product">
+        <h1 class="page-title">
+            <span class="base"><?= $current->getName() ?></span>
+        </h1>
+    </div>
+
+    <div class="product-info-price">
+        <div class="price-box price-final_price"
+        <span class="price-container price-final_price tax weee">
+             <span id="product-price-2" data-price-type="finalPrice" class="price-wrapper ">
+                 <span class="price">$<?= round($current->getPrice(), 4) ?></span>
+             </span>
+            </span>
+     </div>
+    </div>
+
+
+    <div class="product attribute overview">
+        <div class="value"> <?= $current->getDescription() ?></div>
+    </div>
+</div>
+
